@@ -1,0 +1,232 @@
+/* =========================================================
+   Filament RichEditor frontend rendering (Bootstrap-like)
+   Scope: .page-content
+   ========================================================= */
+
+.page-content {
+    /* Base */
+    line-height: 1.6;
+    font-size: 1rem;
+    color: inherit;
+
+    /* Long words / urls */
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+/* ---- Spacing for common blocks ---- */
+.page-content > *:first-child { margin-top: 0 !important; }
+.page-content > *:last-child  { margin-bottom: 0 !important; }
+
+.page-content p,
+.page-content ul,
+.page-content ol,
+.page-content dl,
+.page-content blockquote,
+.page-content pre,
+.page-content table,
+.page-content figure,
+.page-content hr {
+    margin: 0 0 1rem 0;
+}
+
+/* ---- Headings (Bootstrap-ish) ---- */
+.page-content h1,
+.page-content h2,
+.page-content h3,
+.page-content h4,
+.page-content h5,
+.page-content h6 {
+    margin: 1.5rem 0 .75rem;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.page-content h1 { font-size: 2rem; }
+.page-content h2 { font-size: 1.75rem; }
+.page-content h3 { font-size: 1.5rem; }
+.page-content h4 { font-size: 1.25rem; }
+.page-content h5 { font-size: 1.1rem; }
+.page-content h6 { font-size: 1rem; }
+
+/* ---- Links ---- */
+.page-content a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+.page-content a:hover {
+    text-decoration-thickness: 2px;
+}
+
+/* ---- Lists ---- */
+.page-content ul,
+.page-content ol {
+    padding-left: 1.5rem;
+}
+
+.page-content ul { list-style: disc; }
+.page-content ol { list-style: decimal; }
+
+.page-content li { margin: .25rem 0; }
+.page-content li > ul,
+.page-content li > ol {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+
+.page-content ul ul { list-style: circle; }
+.page-content ul ul ul { list-style: square; }
+
+/* ---- Definition lists ---- */
+.page-content dl { margin-bottom: 1rem; }
+.page-content dt { font-weight: 600; }
+.page-content dd { margin: 0 0 .5rem 0; }
+
+/* ---- Images / media ---- */
+.page-content img,
+.page-content video,
+.page-content iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+.page-content figure {
+    margin: 0 0 1rem 0;
+}
+.page-content figcaption {
+    font-size: .875rem;
+    opacity: .75;
+    margin-top: .5rem;
+}
+
+/* Optional: make images look nicer */
+.page-content img {
+    border-radius: .5rem;
+}
+
+/* ---- Tables (Bootstrap-like .table) ---- */
+.page-content .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 1rem;
+}
+
+/* If the RichEditor outputs plain <table>, style it directly */
+.page-content table {
+    width: 100%;
+    border-collapse: collapse;
+    vertical-align: top;
+    margin-bottom: 1rem;
+}
+
+/* Cell spacing */
+.page-content table th,
+.page-content table td {
+    padding: .75rem;
+    border: 1px solid #dee2e6; /* bootstrap-ish */
+    vertical-align: top;
+}
+
+/* Header */
+.page-content table thead th {
+    font-weight: 600;
+    vertical-align: bottom;
+}
+
+/* Striped rows (subtle) */
+.page-content table tbody tr:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Hover effect (optional) */
+.page-content table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+/* Make sure long words in tables wrap */
+.page-content table th,
+.page-content table td {
+    overflow-wrap: anywhere;
+}
+
+/* ---- Blockquote ---- */
+.page-content blockquote {
+    padding: .75rem 1rem;
+    border-left: 4px solid #dee2e6;
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: .25rem;
+}
+
+.page-content blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* ---- Code ---- */
+.page-content code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+    font-size: .95em;
+    padding: .15rem .35rem;
+    border-radius: .25rem;
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.page-content pre {
+    padding: 1rem;
+    border-radius: .5rem;
+    background: rgba(0, 0, 0, 0.06);
+    overflow: auto;
+}
+
+.page-content pre code {
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    font-size: .95rem;
+}
+
+/* ---- Horizontal rule ---- */
+.page-content hr {
+    border: 0;
+    border-top: 1px solid #dee2e6;
+    margin: 1.5rem 0;
+}
+
+/* ---- Inline elements ---- */
+.page-content strong { font-weight: 700; }
+.page-content em { font-style: italic; }
+.page-content mark { padding: .1rem .2rem; }
+.page-content small { font-size: .875em; }
+
+/* ---- Alignment helpers (Rich editors sometimes output these) ---- */
+.page-content .text-start { text-align: left !important; }
+.page-content .text-center { text-align: center !important; }
+.page-content .text-end { text-align: right !important; }
+.page-content .text-justify { text-align: justify !important; }
+
+/* Some editors output align="center" on tags */
+.page-content [align="center"] { text-align: center; }
+.page-content [align="right"] { text-align: right; }
+.page-content [align="left"] { text-align: left; }
+
+/* ---- Optional: nicer spacing when a heading follows something ---- */
+.page-content p + h1,
+.page-content p + h2,
+.page-content p + h3,
+.page-content ul + h1,
+.page-content ul + h2,
+.page-content ul + h3,
+.page-content ol + h1,
+.page-content ol + h2,
+.page-content ol + h3,
+.page-content table + h1,
+.page-content table + h2,
+.page-content table + h3 {
+    margin-top: 2rem;
+}
+.page-content table,
+.page-content th,
+.page-content td {
+    border: none !important;
+}

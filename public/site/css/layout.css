@@ -1,0 +1,661 @@
+/***************************************/
+/*              Topbar                 */
+/***************************************/
+.fd-topbar {
+    background-image: url('/site/img/site/topbar.jpg');
+    background-size: cover;       /* L'image couvre toute la surface */
+    background-position: center;  /* Centre l'image pour éviter les coupures bizarres */
+    background-repeat: no-repeat; /* Évite que l'image ne se répète si la barre est grande */
+    color: #ffffff;               /* Change la couleur du texte en blanc pour la lisibilité */
+}
+
+/* Optionnel : Si vous voulez que les icônes restent bien visibles sur le fond bleu foncé */
+.fd-topbar small,
+.fd-topbar i {
+    color: #ffffff !important;
+}
+/***************************************/
+/*             Navbar                  */
+/***************************************/
+
+.fd-navbar {
+    background-image: url('/site/img/site/navbar3.jpg');
+    background-size: 100% 80px;
+    /*background-position: center;*/
+    /*background-repeat: no-repeat;*/
+    background-repeat: repeat;
+    border: none; /* Supprime d'éventuelles bordures par défaut */
+}
+
+/* Forcer la couleur blanche pour les liens et le titre si l'image est foncée */
+.fd-navbar  {
+    color: rgb(126, 79, 53) !important;
+}
+
+/* Style au survol (hover) pour les liens */
+.fd-navbar .nav-link:hover {
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: #ff0000 !important;
+    font-weight: 300;
+    text-align: center;
+}
+
+/* Ajustement pour le bouton menu mobile (hamburger) */
+.fd-navbar .navbar-toggler {
+    filter: invert(1); /* Rend l'icône burger blanche si elle était noire */
+}
+
+/* 1. Titre Élégant Bleu Foncé */
+.title-bois {
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: #002b5c !important;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Optionnel : Ajout d'une ombre légère pour le relief sur le fond texturé */
+.text-dark-blue {
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+}
+.title-menu .nav-link,
+.title-menu {
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: #002b5c !important;
+    font-weight: 300;
+    text-align: center;
+}
+.title-menu .nav-link:hover {
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: #ff0000 !important;
+    font-weight: 300;
+    text-align: center;
+}
+/***************************************/
+/*              Header                 */
+/***************************************/
+.hero-header-fullscreen {
+    /* On force la hauteur à 100% de la fenêtre visible */
+    height: 100vh;
+    min-height: 500px; /* Sécurité pour les petits écrans en mode paysage */
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-header-fullscreen img {
+    /* L'astuce magique : couvre tout l'espace sans déformation */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.btn-custom-texture {
+    /* On récupère l'image de fond de votre bande */
+    background-image: url('/site/img/site/navbar3.jpg');
+    background-size: cover;
+    background-position: center;
+    border: none;
+    border-radius: 5px;
+    color: #5D4037; /* Une couleur de texte sombre pour contraster avec le fond clair */
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-custom-texture:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    color: #5D4037; /* Garde la couleur au survol */
+}
+.text-header{
+    font-family: "Bad Script", cursive;
+    color: #002b5c !important;
+    font-weight: 800;
+    font-style: normal;
+}
+/***************************************/
+/*              Content                */
+/***************************************/
+/* Couleur marron personnalisée pour correspondre à l'image 2 */
+:root {
+    --custom-brown: #002b5b;
+}
+.text-content{
+    font-family: "Bad Script", cursive;
+    color: #002b5c !important;
+    font-weight: 800;
+    font-style: normal;
+}
+.titre-souligne {
+    position: relative;
+    display: inline-block; /* Important pour que le trait fasse la largeur du texte */
+    font-family: "Bad Script", cursive;
+    color: #002b5c;
+    font-style: italic;
+    font-weight: 800;
+    padding-bottom: 10px;
+}
+
+.titre-souligne::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 8px; /* Épaisseur du trait */
+    background-color: #002b5c; /* Couleur du trait */
+
+    /* On utilise un masque SVG pour créer l'effet irrégulier "main levée" */
+    mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 10" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 5 Q 25 2, 50 5 T 100 5 L 100 7 Q 75 9, 50 6 T 0 7 Z" fill="black"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 10" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 5 Q 25 2, 50 5 T 100 5 L 100 7 Q 75 9, 50 6 T 0 7 Z" fill="black"/></svg>');
+
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+
+    opacity: 0.8; /* Pour un effet légèrement plus doux */
+}
+/* Positionnement du bandeau pour qu'il chevauche l'image du dessus */
+.info-bandeau-wrapper {
+    margin-top: -50px; /* Ajustez pour monter plus ou moins sur l'image */
+    position: relative;
+    z-index: 10;
+}
+
+/* Style du rectangle blanc (le bandeau) */
+.info-bandeau {
+    padding: 20px 0;
+    border-radius: 4px;
+    /* Texture légère comme sur l'image (optionnel) */
+    background-image: url('/site/img/site/navbar3.jpg');
+    background-size: cover;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Alignement des icônes et textes */
+.info-item {
+    padding: 10px 0;
+}
+
+/* Séparateurs verticaux entre les colonnes */
+.border-end-custom {
+    border-right: 1px solid #dee2e6;
+}
+
+/*!* Icônes bleues foncées comme le modèle *!*/
+/*.info-icon {*/
+/*    font-size: 40px;*/
+/*    color: #002b5b; !* Bleu marine foncé *!*/
+/*}*/
+
+/*!* Les chiffres *!*/
+/*.info-number {*/
+/*    display: block;*/
+/*    font-size: 24px;*/
+/*    font-weight: 800;*/
+/*    color: #002b5b;*/
+/*    line-height: 1;*/
+/*}*/
+/* ===== INFO BANDEAU DESKTOP ===== */
+.info-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    text-align: left;
+}
+
+.info-text-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-icon {
+    font-size: 40px;
+}
+
+.info-number {
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.info-text {
+    font-size: 14px;
+    margin: 0;
+    font-size: 14px;
+    color: #002b5b;
+    font-weight: 600;
+}
+
+/*!* Le texte descriptif *!*/
+/*.info-text {*/
+/*    margin: 0;*/
+/*    font-size: 14px;*/
+/*    color: #002b5b;*/
+/*    font-weight: 600;*/
+/*}*/
+/* ===== COULEUR BLEU FORCÉE INFO BANDEAU ===== */
+.info-bandeau,
+.info-box,
+.info-icon,
+.info-number,
+.info-text {
+    color: #002b5b !important; /* ton bleu */
+}
+/* Responsive : On enlève les bordures droites sur mobile */
+/* ===== INFO BANDEAU MOBILE PRO ===== */
+@media (max-width: 767.98px) {
+
+    .info-mobile .col-3 {
+        padding: 10px 0;
+    }
+
+    .info-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        height: 100%;            /* même hauteur */
+        text-align: center;
+    }
+
+    .info-icon {
+        font-size: 26px;
+        margin-bottom: 4px;
+    }
+
+    .info-number {
+        font-size: 16px;
+        font-weight: 800;
+        line-height: 1;
+    }
+
+    .info-text {
+        font-size: 11px;
+        margin: 0;
+        line-height: 1.1;
+        white-space: nowrap; /* empêche les retours à la ligne */
+    }
+
+    /* SUPPRESSION TOTALE DES BORDURES */
+    .border-end-custom {
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+}
+
+/*-------*/
+.fd-content {
+    background-image: url('/site/img/site/content.jpg');
+    background-size: cover;
+    /*background-attachment: scroll;*/
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100% !important;
+}
+.nos-realisations {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 700;
+    color: #1a3c6e; /* Bleu foncé similaire à l'image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    white-space: nowrap;
+    font-size: 2.5rem;
+}
+
+/* Les lignes horizontales avec dégradé */
+.nos-realisations::before,
+.nos-realisations::after {
+    content: "";
+    height: 1.5px;
+    flex-grow: 1;
+    max-width: 200px; /* Ajustez selon la largeur souhaitée */
+}
+
+/* Dégradé de gauche : transparent vers bleu */
+.nos-realisations::before {
+    background: linear-gradient(to right, transparent, #1a3c6e);
+    margin-right: 10px;
+}
+
+/* Dégradé de droite : bleu vers transparent */
+.nos-realisations::after {
+    background: linear-gradient(to left, transparent, #1a3c6e);
+    margin-left: 10px;
+}
+
+/* Ajout des symboles décoratifs (Fleurons) */
+/* On peut utiliser des caractères Unicode comme ☙, ❦, ou ❧ */
+.nos-realisations::before {
+    content: " \2619"; /* Symbole floral */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-style: normal;
+}
+
+.nos-realisations::after {
+    content: "\2619  ";
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-style: normal;
+}
+.famille-card {
+    background: rgba(255, 255, 255, 0.9); /* Rend les cartes légèrement opaques sur le fond */
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+/* Style du bouton bleu marine */
+.btn-bleu-bois {
+    background-color: #002b5c !important; /* Votre bleu spécifique */
+    color: #ffffff !important;            /* Écriture blanche */
+    padding: 8px 25px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    position: relative;                   /* Nécessaire pour le soulignement */
+    transition: all 0.3s ease;
+    border: none;
+}
+
+/* Effet de soulignement à la main (plus gros et effacé) */
+.btn-bleu-bois::after {
+    content: "";
+    position: absolute;
+    left: -5%;                            /* Déborde un peu à gauche */
+    bottom: -12px;                        /* Position sous le bouton */
+    width: 110%;                          /* Plus large que le bouton */
+    height: 10px;                         /* Trait plus épais */
+    /*background-color: #002b5c;            !* Même bleu que le bouton *!*/
+
+    /*!* Masque SVG pour l'effet "main levée" irrégulier *!*/
+    /*-webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 10" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 5 Q 10 2, 25 5 T 50 4 T 75 6 T 100 5 L 100 8 Q 85 9, 50 7 T 0 8 Z" fill="black"/></svg>');*/
+    /*mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 10" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 5 Q 10 2, 25 5 T 50 4 T 75 6 T 100 5 L 100 8 Q 85 9, 50 7 T 0 8 Z" fill="black"/></svg>');*/
+
+    /*-webkit-mask-size: 100% 100%;*/
+    /*mask-size: 100% 100%;*/
+
+    /*!* Effet "effacé" : dégradé linéaire sur l'opacité *!*/
+    /*opacity: 0.7;*/
+    /*background: linear-gradient(90deg,*/
+    /*rgba(0,43,92,0) 0%,*/
+    /*rgba(0,43,92,1) 15%,*/
+    /*rgba(0,43,92,1) 85%,*/
+    /*rgba(0,43,92,0) 100%);*/
+}
+
+.btn-bleu-bois:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+    color: #ffffff !important;
+}
+.feature-section {
+    /* On applique l'image de fond ici */
+    background: url('/site/img/site/ton-image-menuisier.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+
+.feature-row-wrapper {
+    /* Le secret : un dégradé qui va du blanc (à gauche) au transparent (à droite) */
+    background: linear-gradient(to right,
+    rgba(255,255,255, 0.95) 0%,
+    rgba(255,255,255, 0.8) 30%,
+    rgba(255,255,255, 0) 60%
+    );
+    padding: 80px 0;
+}
+
+.custom-title {
+    color: #543717;
+    font-weight: 700;
+    position: relative;
+}
+
+/* Petit trait décoratif sous le titre comme sur ton image */
+.custom-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #aa7341;
+    margin-top: 15px;
+}
+
+.description {
+    color: #002b5b;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+}
+
+.feature-icon-box {
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px; /* Un angle légèrement arrondi mais très pro */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Ombre très légère */
+    color: #002b5b;
+    font-size: 1.2rem;
+}
+
+.feature-item .label {
+    display: block;
+    font-size: 0.8rem;
+    color: #002b5b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.feature-item h5 {
+    color: #002b5b;
+    font-weight: 600;
+}
+.text-choisir{
+    color: #002b5b;
+}
+
+/* Responsive : sur mobile, on met un fond plein pour la lisibilité */
+@media (max-width: 991px) {
+    .feature-row-wrapper {
+        background: rgba(255,255,255, 0.9);
+    }
+}
+
+/***************************************/
+/*              Avis                   */
+/***************************************/
+
+.fd-avis {
+    /* Chemin vers votre image */
+    background: url('/site/img/site/avis-drap.jpg');
+
+    /* Propriétés pour un fond plein écran responsive */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* On s'assure que la section prend toute la largeur */
+    width: 100%;
+    position: relative;
+}
+
+/* Style pour les étoiles (utilisé dans votre HTML) */
+.rating {
+    color: #f0e50d; /* Un doré/marron assorti au bois */
+}
+
+/* Amélioration de la lisibilité des cartes de témoignage */
+.testimonial-item {
+    background: #ffffff;
+    border-radius: 12px; /* Un peu plus arrondi pour la modernité */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Ombre plus douce */
+    margin: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Pour que toutes les cartes aient la même hauteur */
+}
+
+.testimonial-text {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Pousse le bouton vers le bas */
+}
+.fd-boxvoile{
+    background-color: rgb(255, 255, 255,0.7);
+    border-radius: 10px;
+}
+.en_savoir_plus .btn-famille {
+    background-color: #e0e0e0; /* Gris clair comme sur ton image */
+    border-radius: 50px;
+    padding: 8px 20px;
+    color: #333;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.en_savoir_plus .btn-famille:hover {
+    background-color: #d0d0d0;
+    transform: translateY(-2px);
+}
+/* Force le container interne à se centrer si les items ne prennent pas toute la place */
+.testimonial-carousel .owl-stage {
+    display: flex !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+}
+
+/* Style pour le texte bleu foncé et lisible */
+.testimonial-text {
+    color: #002b5c !important; /* Bleu marine profond */
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.6;
+    text-shadow: 0px 1px 2px rgba(255,255,255,0.5); /* Léger halo blanc pour décoller du fond */
+}
+
+/* Flèches personnalisées plus élégantes */
+/* Flèches Bleu Foncé imposantes */
+.carousel-custom-icon {
+    font-size: 4.5rem; /* Très grosses */
+    color: #002b5c !important; /* Bleu foncé forcé */
+    font-weight: bold;
+    opacity: 0.9;
+    transition: transform 0.2s ease;
+}
+
+.carousel-custom-icon:hover {
+    transform: scale(1.2);
+    color: #004085;
+}
+.carousel-control-prev:hover .carousel-custom-icon,
+.carousel-control-next:hover .carousel-custom-icon {
+    opacity: 1;
+    transform: scale(1.1); /* Effet de zoom au survol */
+}
+
+/* Supprime le contour par défaut de Bootstrap au clic */
+.carousel-control-prev, .carousel-control-next {
+    width: 10%;
+    background: none !important;
+    border: none !important;
+}
+/* Ajustement de la zone du carousel */
+.carousel-inner {
+    padding: 0 15%; /* Crée une marge pour que le texte ne touche jamais les flèches */
+}
+/* Style du bouton rouge en relief */
+.btn-rouge-relief {
+    background-color: #a63038;     /* Rouge vif Bootstrap */
+    color: #ffffff !important;      /* Texte blanc */
+    border: none;
+    border-radius: 50px;           /* Arrondi pilule parfait */
+    padding: 10px 25px;            /* Taille confortable */
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+
+    /* Effet de relief (ombre) */
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4), inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn-rouge-relief:hover {
+    background-color: #c82333;     /* Rouge un peu plus foncé au survol */
+    transform: translateY(-2px);   /* Petit saut pour accentuer le relief */
+    box-shadow: 0 6px 20px rgba(220, 53, 69, 0.6), inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+    color: #ffffff !important;
+}
+
+.btn-rouge-relief:active {
+    transform: translateY(1px);    /* Effet bouton pressé */
+    box-shadow: 0 2px 10px rgba(220, 53, 69, 0.4);
+}
+/***************************************/
+/*              Footer                 */
+/***************************************/
+.agence{
+    background: url('/site/img/site/acceuil.jpg');
+
+    /* Propriétés pour un fond plein écran responsive */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* On s'assure que la section prend toute la largeur */
+    width: 100%;
+    position: relative;
+}
+.footer-img-container {
+    width: 100%;
+    /* Hauteur fixe pour s'aligner sur les colonnes de texte */
+    height: 250px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.footer-img-container img {
+    width: 100%;
+    height: 100%;
+    /* C'est ce qui empêche l'image d'être déformée ou trop zoomée */
+    object-fit: cover;
+    /* On centre l'image sur le bâtiment */
+    object-position: center;
+}
+
+/* Sur petit écran, on peut réduire la hauteur pour que ça ne prenne pas tout l'écran */
+@media (max-width: 768px) {
+    .footer-img-container {
+        height: 200px;
+        margin-top: 20px;
+    }
+}
+/***********************************/
+/* A propos */
+.text-blueapb {
+    color: #002b5b !important;
+}
