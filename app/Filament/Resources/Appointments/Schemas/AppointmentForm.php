@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Appointments\Schemas;
 
+use App\Filament\Forms\Components\AutocompleteAdresse;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\TextInput;
@@ -15,11 +16,21 @@ class AppointmentForm
 {
     public static function configure(Schema $schema): Schema
     {
+        $from = AutocompleteAdresse::make('locations_from')
+            ->label('Adresse de départ')
+            ->showedKey('properties.label')
+            ->required();
+
+        $to = AutocompleteAdresse::make('locations_to')
+            ->label('Adresse d’arrivée')
+            ->showedKey('properties.label')
+            ->required();
+
         return $schema
             ->components([
-                Section::make('Détails du Rendez-vous')
+                Section::make('Détails du Rendez-vous')->columnSpanFull()
                     ->schema([
-                        Grid::make(1)
+                        Grid::make()
                             ->schema([
                             TextInput::make('title')
                                 ->label('Objet')
@@ -27,38 +38,40 @@ class AppointmentForm
                                 ->columnSpanFull(),
 
                             DateTimePicker::make('starts_at')
-                                ->label('Date et Heure')
+                                ->label('Date et Heure début')
                                 ->required()
                                 ->native(false),
 
-                            TextInput::make('start_address')
-                                ->label('Départ (Laisser vide pour position actuelle)')
-                                ->placeholder('Ex: 12 Rue de la Mer, Plouider')
-                                ->live(onBlur: true),
-
-                            TextInput::make('address')
-                                ->label('Destination (Lieu du RDV)')
+DateTimePicker::make('ends_at')
+                                ->label('Date et Heure fin')
                                 ->required()
-                                ->live(onBlur: true)
-                                ->suffixAction(
-                                    Action::make('itineraire_externe')
-                                        ->icon('heroicon-m-map')
-                                        ->color('info')
-                                        ->url(fn ($get) => $get('address')
-                                            ? "https://www.google.com/maps/dir/?api=1&destination=" . urlencode($get('address')) . "&origin=" . urlencode($get('start_address') ?? '')
-                                            : null, true)
-                                ),
+                                ->native(false),
 
-                            ViewField::make('map_preview')
-                                ->view('filament.widgets.apb-agenda')
-                                ->columnSpanFull(),
+
+
 
                             Textarea::make('description')
                                 ->label('Notes de préparation')
                                 ->rows(3)
                                 ->columnSpanFull(),
-                        ]),
-                    ])->columns(1)
+                        ])
+                        ,
+                    ])->columns(1),
+                Section::make('Coordonnés GPS')->columnSpanFull()->schema([
+                    Grid::make()->schema([$from, $to]),
+                    ViewField::make('map')
+                        ->view('filament.forms.views.mapbox-route')
+                        ->viewData([
+                            'fromStatePath' => 'data.locations_from',
+                            'toStatePath'   => 'data.locations_to',
+                        ])
+                        ->dehydrated(false)
+                        ->columnSpanFull()
+
+//        ViewField::make('map_preview')
+//                                ->view('filament.widgets.apb-agenda')
+//                                ->columnSpanFull(),
+                ])
             ]);
     }
 }

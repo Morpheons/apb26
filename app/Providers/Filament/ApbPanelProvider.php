@@ -45,6 +45,7 @@ class ApbPanelProvider extends PanelProvider
             ->default()
             ->id('apb')
             ->path('apb')
+            ->viteTheme('resources/css/filament/apb/theme.css')
             ->login()
             ->brandName($settings?->brand_name ?? 'APB Dashboard')
             ->homeUrl('/')
