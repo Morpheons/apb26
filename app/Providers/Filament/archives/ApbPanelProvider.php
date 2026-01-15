@@ -5,7 +5,6 @@ namespace App\Providers\Filament;
 use App\Filament\Widgets\ApbAgendaWidget;
 use App\Filament\Widgets\CountFamilleWidget;
 use App\Filament\Widgets\CountProjetWidget;
-use App\Filament\Widgets\CountRdvWidget;
 use Guava\Calendar\CalendarPlugin;
 use App\Models\AdminSetting;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
@@ -61,7 +60,114 @@ class ApbPanelProvider extends PanelProvider
             $panel->favicon(asset('storage/' . $settings->favicon_path));
         }
 
+//        if ($settings?->primary_color) {
+//            $panel->colors([
+//                'danger' => $settings->danger_color ?? Color::Rose,
+//                'gray' => Color::Gray,
+//                'info' => $settings->primary_color,
+//                'primary' => $settings->primary_color ?? Color::Cyan,
+//                'success' => $settings->success_color ?? Color::Teal,
+//                'warning' => $settings->warning_color ?? Color::Amber,
+//            ]);
+//        }
+
+//        $panel->renderHook(
+//            PanelsRenderHook::HEAD_END,
+//            function () use ($settings): string {
+//                if (!$settings) return '';
+//
+//                $primaryHex = $settings->primary_color ?? '#f59e0b';
+//                $grayHex = $settings->gray_color ?? '#09090b';
+//                $bgHex = $settings->background_color ?? '#000000';
+//                $sidebarHex = $settings->sidebar_color ?? '#111111';
+//
+//                // On génère une couleur de bordure subtile basée sur le gris
+//                $borderColor = "rgba(255, 255, 255, 0.1)";
+//
+//                return "
+//                <style>
+//                    :root, .dark {
+//                        --primary-500: {$primaryHex} !important;
+//                        --primary-600: {$primaryHex} !important;
+//                        /* Supprime le halo bleu au focus */
+//                        --tw-ring-color: transparent !important;
+//                    }
+//
+//                    /* 1. TOPBAR (La barre du haut qui était restée mauve/bleue) */
+//                    .fi-topbar {
+//                        background-color: {$bgHex} !important;
+//                        border-bottom: 1px solid {$borderColor} !important;
+//                    }
+//                    .fi-topbar nav {
+//                        background-color: transparent !important;
+//                    }
+//
+//                    /* 2. SIDEBAR (Navigation latérale) */
+//                    .fi-sidebar {
+//                        background-color: {$sidebarHex} !important;
+//                        border-right: 1px solid {$borderColor} !important;
+//                    }
+//
+//                    /* Texte des menus : Toujours blanc/gris clair pour la lisibilité */
+//                    .dark .fi-sidebar-item-label,
+//                    .dark .fi-sidebar-group-label {
+//                        color: rgba(255, 255, 255, 0.7) !important;
+//                    }
+//
+//                    /* Item actif : Prend la couleur primaire */
+//                    .dark .fi-sidebar-item-active .fi-sidebar-item-label,
+//                    .dark .fi-sidebar-item-active .fi-sidebar-item-icon {
+//                        color: {$primaryHex} !important;
+//                    }
+//
+//                    /* 3. CONTENU ET SECTIONS (Les boîtes qui étaient bleues) */
+//                    body.fi-body {
+//                        background-color: {$bgHex} !important;
+//                    }
+//
+//                    .fi-main {
+//                        background-color: {$bgHex} !important;
+//                    }
+//
+//                    /* Cible les cartes, sections et widgets */
+//                    .dark .fi-section,
+//                    .dark .fi-card,
+//                    .dark .fi-ta-ctn,
+//                    .dark .fi-wi-widget > div {
+//                        background-color: {$grayHex} !important;
+//                        border: 1px solid {$borderColor} !important;
+//                        box-shadow: none !important;
+//                    }
+//
+//                    /* En-têtes des sections */
+//                    .dark .fi-section-header-heading {
+//                        color: white !important;
+//                    }
+//
+//                    /* 4. TABLES ET BOUTONS FILTRES */
+//                    .dark .fi-ta-header-toolbar {
+//                        background-color: transparent !important;
+//                    }
+//
+//                    /* Boutons d'action (comme 'Appliquer les filtres') */
+//                    .fi-btn-color-primary {
+//                        background-color: {$primaryHex} !important;
+//                    }
+//
+//                    /* Notifications Toasts */
+//                    .fi-no-notification {
+//                        background-color: {$grayHex} !important;
+//                        border: 1px solid {$primaryHex} !important;
+//                    }
+//                </style>
+//                ";
+//            }
+//        );
+
         return $panel
+            ->dashboard(function (Dashboard $dashboard) {
+                $dashboard->columns(12); // On définit la grille sur 12
+            })
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
             ->pages([Dashboard::class])
@@ -69,7 +175,6 @@ class ApbPanelProvider extends PanelProvider
                 AccountWidget::class,
                 CountFamilleWidget::class,
                 CountProjetWidget::class,
-                CountRdvWidget::class,
                 ApbAgendaWidget::class,
             ])
             ->navigationItems([

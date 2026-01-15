@@ -19,7 +19,7 @@ class FamillesResource extends Resource
 {
     protected static ?string $model = Familles::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::AcademicCap;
     protected static ?int $navigationSort = 2;
 //    protected static ?string $recordTitleAttribute = 'Familles';
     public static function getNavigationGroup(): ?string

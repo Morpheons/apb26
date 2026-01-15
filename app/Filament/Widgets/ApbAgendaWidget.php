@@ -14,10 +14,13 @@ use Illuminate\Support\Collection;
 class ApbAgendaWidget extends CalendarWidget
 {
     protected bool $eventClickEnabled = true;
-
+    protected static ?int $sort = 5;
     // Quand on clique un event, Guava va monter cette action (nom = action name)
     protected ?string $defaultEventClickAction = 'viewAppointment';
-
+    protected function getColumns(): int
+    {
+        return 1;
+    }
     protected function getEvents(FetchInfo $info): Collection|array
     {
         return Appointment::query()
