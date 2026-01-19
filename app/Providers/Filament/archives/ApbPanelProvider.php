@@ -3,7 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Widgets\ApbAgendaWidget;
-use App\Filament\Widgets\CountFamilleWidget;
+use App\Filament\Widgets\StatsWidget;
 use App\Filament\Widgets\CountProjetWidget;
 use Guava\Calendar\CalendarPlugin;
 use App\Models\AdminSetting;
@@ -173,7 +173,7 @@ class ApbPanelProvider extends PanelProvider
             ->pages([Dashboard::class])
             ->widgets([
                 AccountWidget::class,
-                CountFamilleWidget::class,
+                StatsWidget::class,
                 CountProjetWidget::class,
                 ApbAgendaWidget::class,
             ])
